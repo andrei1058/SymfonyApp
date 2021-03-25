@@ -5,6 +5,7 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     hello_message: "Hello from the app"
+    locale: "en"
 
 services:
     # default configuration for services in *this* file
@@ -34,6 +35,10 @@ services:
     App\Service\Greeting:
         arguments:
             $msg: '%hello_message%'
+
+    App\Twig\AppExtension:
+        arguments:
+            $locale: '%locale%'
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
